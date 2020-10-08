@@ -20,8 +20,10 @@ pipeline {
                     sh 'python --version'
                     sh 'python hello.py'
                     sh 'chmod +x support.sh'
-                    sh './support.sh '
-                    sh 'curl localhost:1000'
+                    withEnv(['BUILD_ID=dontkill']) {
+                        sh "python app.py &"
+                        sh 'curl localhost:8080'
+                    }
                 }
             }
         }
