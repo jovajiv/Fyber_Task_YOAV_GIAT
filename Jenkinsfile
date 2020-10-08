@@ -11,6 +11,9 @@ pipeline {
                 echo 'Testing.k.'
                 sh 'ls -l'
                 sh 'pwd'
+                sh 'env'
+                sh 'whoami'
+                sh 'cat /etc/passwd
                 sh 'python --version'
                 sh 'python hello.py'
                 sh 'python /var/jenkins_home/workspace/Fyber_Task_YOAV_GIAT_master/app.py'
