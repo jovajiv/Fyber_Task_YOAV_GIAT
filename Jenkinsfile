@@ -10,6 +10,7 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh 'ls -l'
+                python app.py
             }
         }
         stage('Deploy') {
