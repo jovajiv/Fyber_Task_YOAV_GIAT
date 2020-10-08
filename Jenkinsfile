@@ -21,7 +21,7 @@ pipeline {
                     sh 'python hello.py'
                     sh 'chmod +x support.sh'
                     sh './support.sh '
-                    sh 'curl localhost:8080'
+                    sh 'curl localhost:1000'
                 }
             }
         }
