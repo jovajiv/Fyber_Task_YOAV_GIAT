@@ -5,21 +5,22 @@ import json
 
 app = Flask(__name__)
 
-#CONSTANTS
-DATE=0
-VALUE=1
+# CONSTANTS
+DATE = 0
+VALUE = 1
+
 
 @app.route('/')
 def hello_world():
     return json.dumps({})
 
 
-
 @app.errorhandler(404)
-def page_not_found(error):
+def page_not_found():
     return json.dumps({})
 
-#used to test the status of the remote api server being used by us.
+
+# used to test the status of the remote api server being used by us.
 @app.route('/status')
 def status():
     try:
@@ -30,36 +31,36 @@ def status():
             print("server is responding")
             return json.dumps({"status": "success"})
         else:
-            print("Remote API has issues , 'https://disease.sh/v3/covid-19/historicall/'  ,return code is {} instead of 200".format(r.status_code))
+            print("Remote API has issues, 'https://disease.sh/v3/covid-19/historicall/',return code is {} instead of 200".format(r.status_code))
             return json.dumps({"status": "failure"})
     except:
         return json.dumps({"status": "failure"})
 
 
-
-#full url request :
+# full url request :
 # curl localhost:8080/recoveredPeak?country=ukraine
 # curl localhost:8080/deathsPeak?country=ukraine
 # curl localhost:8080/newCasesPeak?country=israel
-
+#
 # returns json answer : {"country": "israel", "method": "cases", "date": "9/23/20", "value": 11316}
+# where value is the peak daily change detected within the last 30 days
 # if exception is thrown, return  {}
 @app.route('/<query>Peak')
-def recoveredPeak(query):
+def peak(query):
     try:
 
-        #response.raise_for_status()
+        # response.raise_for_status()
         country = request.args.get('country', "")
         print(country)
         response = requests.get("https://disease.sh/v3/covid-19/historical/" + country + "?lastdays=30")
         if response.ok:
-            requested_info=queryType(query)
-            ordered_json_response=response.json(object_pairs_hook=OrderedDict)['timeline'][requested_info[query]]  #pairs are now orderd tuples.   OrderedDict([('9/7/20', 133975), ('9/8/20', 137565),....}
+            requested_info = query_type()
+            ordered_json_response = response.json(object_pairs_hook=OrderedDict)['timeline'][requested_info[query]]  #pairs are now orderd tuples.   OrderedDict([('9/7/20', 133975), ('9/8/20', 137565),....}
             list_of_pairs = list(ordered_json_response.items())              ## [('9/7/20', 133975), ('9/8/20', 137565), ('9/9/20', 141097),...] list format
             print(list_of_pairs)
             print(type(list_of_pairs))
             pair=max_pair_by_val(list_of_pairs)     # pair=(date_of_max_diff, max_diff)
-            ordered_json_reply=OrderedDict([("country",country),("method",requested_info[query]),("date",pair[DATE]), ("value",pair[VALUE])])
+            ordered_json_reply=OrderedDict([("country", country), ("method", requested_info[query]), ("date", pair[DATE]), ("value", pair[VALUE])])
             return json.dumps(ordered_json_reply)
         else:
             return json.dumps({})
@@ -69,13 +70,13 @@ def recoveredPeak(query):
 
 # this function returns a dictionary that translates the query the user inputs in the url,
 # to the respective name according to 3rd party api.
-def queryType(type):
-    switcher= {
+def query_type():
+    switcher = {
         'newCases': "cases",
         'recovered': "recovered",
         'deaths':   "deaths"
     }
-    return switcher;
+    return switcher
 
 
 
