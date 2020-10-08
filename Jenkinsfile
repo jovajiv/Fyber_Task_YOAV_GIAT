@@ -22,8 +22,9 @@ pipeline {
                     sh 'python hello.py'
                     sh 'chmod +x support.sh'
                     withEnv(['JENKINS_NODE_COOKIE =dontkill']) {
-                        sh "python app.py "
-                        sh 'curl localhost:8080'
+                        sh 'python app.py &'
+                        sh 'sleep 100'
+                        sh 'curl localhost:900'
                     }
                 }
             }
