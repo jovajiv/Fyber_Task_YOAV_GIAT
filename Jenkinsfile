@@ -19,7 +19,7 @@ pipeline {
                     """
                     sh 'python --version'
                     sh 'python hello.py'
-                    sh 'python app.py '
+                    sh './support.sh '
                     sh 'curl localhost:8080'
                 }
             }
