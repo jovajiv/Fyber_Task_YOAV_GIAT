@@ -13,7 +13,7 @@ pipeline {
                     sh 'ls -l'
                     sh 'pwd'
                     sh 'python --version'
-                    sh 'virtualenv venv'
+                    sh 'python hello.py'
                     sh 'python /var/jenkins_home/workspace/Fyber_Task_YOAV_GIAT_master/app.py'
                     }
             }
