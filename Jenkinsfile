@@ -19,7 +19,7 @@ pipeline {
                     """
                     sh 'python --version'
                     sh 'python hello.py'
-                    sh 'python /var/jenkins_home/workspace/Fyber_Task_YOAV_GIAT_master/app.py'
+                    sh 'python /var/jenkins_home/workspace/Fyber_Task_YOAV_GIAT_master/app.py &'
                 }
             }
         }
