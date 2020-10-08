@@ -94,5 +94,5 @@ def max_pair_by_val(list):
 
 
 if __name__ == '__main__':
-    app.run(port=900)
+    app.run(port=8080)
 
