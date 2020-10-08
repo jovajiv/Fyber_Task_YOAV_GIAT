@@ -11,7 +11,7 @@ pipeline {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     echo 'Testing.k.'
                     sh 'ls -l'
-                    sh 'sudo pwd'
+                    sh 'pwd'
                     sh 'python --version'
                     sh 'pip install Flask'
                     sh 'python /var/jenkins_home/workspace/Fyber_Task_YOAV_GIAT_master/app.py'
