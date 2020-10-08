@@ -1,6 +1,6 @@
 pipeline {
     agent { docker { image 'python:3.5.1'
-                     args '-p 2000:8080'} }
+                     args '-p 2000:11000'} }
     stages {
         stage('Build') {
             steps {
@@ -24,7 +24,7 @@ pipeline {
                     withEnv(['JENKINS_NODE_COOKIE =dontkill']) {
                         sh "python app.py &"
                         sh "sleep 120"
-                        sh 'curl localhost:8080'
+                        sh 'curl localhost:11000'
                     }
                 }
             }
