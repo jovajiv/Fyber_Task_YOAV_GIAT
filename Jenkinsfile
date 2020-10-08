@@ -15,6 +15,7 @@ pipeline {
                     sh """
                     env
                     pip install flask --user
+                    pip install requests --user
                     """
                     sh 'python --version'
                     sh 'python hello.py'
