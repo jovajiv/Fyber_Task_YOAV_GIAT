@@ -12,7 +12,7 @@ pipeline {
                 sh 'ls -l'
                 sh 'pwd'
                 sh """
-                . .env/bin/activate
+                .env/bin/activate
                 pip install flask
                 """
                 sh 'env'
