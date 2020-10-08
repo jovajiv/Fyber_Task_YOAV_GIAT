@@ -1,5 +1,6 @@
 pipeline {
-    agent { docker { image 'python:3.5.1' } }
+    agent { docker { image 'python:3.5.1'
+                     args '-p 2000:8080'} }
     stages {
         stage('Build') {
             steps {
