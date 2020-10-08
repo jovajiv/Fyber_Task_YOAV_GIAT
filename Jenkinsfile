@@ -11,6 +11,10 @@ pipeline {
                 echo 'Testing.k.'
                 sh 'ls -l'
                 sh 'pwd'
+                sh """
+                . .env/bin/activate
+                pip install flask
+                """
                 sh 'env'
                 sh 'whoami'
                 sh 'cat /etc/passwd'
