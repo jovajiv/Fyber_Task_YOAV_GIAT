@@ -8,10 +8,11 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo 'Testing.k.'
                 sh 'ls -l'
                 sh 'pwd'
                 sh 'python --version'
+                sh 'pip install Flask'
                 sh 'python /var/jenkins_home/workspace/Fyber_Task_YOAV_GIAT_master/app.py'
             }
         }
