@@ -25,6 +25,7 @@ pipeline {
                         sh "python app.py &"
                         sh "sleep 5"
                         sh 'curl localhost:8080'
+                        sh 'curl localhost:8080/newCasesPeak?country=israel'
                     }
                 }
             }
