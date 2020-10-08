@@ -1,4 +1,4 @@
-from flask import Flask,request
+from flask import Flask, request
 from collections import OrderedDict
 import requests
 import json
@@ -16,7 +16,7 @@ def hello_world():
 
 
 @app.errorhandler(404)
-def page_not_found():
+def page_not_found(err):
     return json.dumps({})
 
 
@@ -79,22 +79,18 @@ def query_type():
     return switcher
 
 
-
-
-
-
-#this function receives a list of tuple pairs. [(key1,val1) , (key2,val2) , (key3,val3)...]
-#returns the pair (key,diff) whose diff (curr_elemnt_val - prev_elemnt_val) is maximal.
+# this function receives a list of tuple pairs. [(key1,val1) , (key2,val2) , (key3,val3)...]
+# returns the pair (key,diff) whose diff (curr_elemnt_val - prev_elemnt_val) is maximal.
 def max_pair_by_val(list):
-    max_diff=0;
-    max_index=0;
-    for index in range(0,len(list)-1):
+    max_diff = 0
+    max_index = 0
+    for index in range(0, len(list)-1):
         temp_diff=list[index+1][VALUE]-list[index][VALUE]
         if temp_diff > max_diff:
-            max_index=index+1
-            max_diff=temp_diff
+            max_index = index+1
+            max_diff = temp_diff
 
-    return (list[max_index][DATE],max_diff)
+    return list[max_index][DATE], max_diff
 
 
 if __name__ == '__main__':

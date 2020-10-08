@@ -1,6 +1,5 @@
 pipeline {
-    agent any
-
+    agent { docker { image 'python:3.5.1' } }
     stages {
         stage('Build') {
             steps {
@@ -9,7 +8,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo 'Testing..
+                ls -l
+                sh 'ls -l'
             }
         }
         stage('Deploy') {
