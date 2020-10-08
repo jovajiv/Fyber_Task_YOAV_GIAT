@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..
+                echo 'Testing..'
                 ls -l
                 sh 'ls -l'
             }
