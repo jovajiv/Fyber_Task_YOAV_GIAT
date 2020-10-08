@@ -20,8 +20,8 @@ pipeline {
                     sh 'python --version'
                     sh 'python hello.py'
                     sh 'chmod +x support.sh'
-                    withEnv(['BUILD_ID=dontkill']) {
-                        sh "python app.py &"
+                    withEnv(['JENKINS_NODE_COOKIE =dontkill']) {
+                        sh "python app.py "
                         sh 'curl localhost:8080'
                     }
                 }
