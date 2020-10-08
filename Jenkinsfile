@@ -14,7 +14,7 @@ pipeline {
                     sh 'pwd'
                     sh """
                     env
-                    pip install flask
+                    pip install flask --user
                     """
                     sh 'python --version'
                     sh 'python hello.py'
