@@ -43,63 +43,6 @@ def status():
 
 
 
-# @app.route('/newCasesPeakcountry=<country>')
-# def hello_world3(country):
-#     try:
-#         response = requests.get("https://disease.sh/v3/covid-19/historical/"+country+"?lastdays=30")
-#         response.raise_for_status()
-#         if response.ok:
-#             print(response.json())
-#             ordered_json_response=response.json(object_pairs_hook=OrderedDict)['timeline']['cases']  #pairs are now orderd tuples.   OrderedDict([('9/7/20', 133975), ('9/8/20', 137565),....}
-#             print(ordered_json_response)
-#             max_diff=0
-#             max_tuple=pop_first_item(ordered_json_response)         # TODO: handle case of empty tuple....
-#
-#
-#             print(max_tuple[1])
-#             print(max_diff)
-#             print(max_tuple[0])
-#             print(max_tuple)
-#             print({"aa":300,"bb":400})
-#             for key in ordered_json_response.keys():
-#                 print(key)
-#                 if ordered_json_response[key] - max_tuple[1] > max_diff :
-#                     max_diff=ordered_json_response[key] - max_tuple[1]
-#                     print("max diff is {}".format(max_diff))
-#                     max_tuple=(key,ordered_json_response[key])
-#                     print("max diff is {}".format(max_tuple[1]))
-#             return {key:max_diff}
-#
-#
-#
-#             print(type(ordered_json_response.values()))
-#             temp=numpy.array(list(ordered_json_response.values()))
-#             print(temp)
-#             print('hello')
-#             print(max(numpy.diff(temp)))
-#             print(numpy.diff(temp))
-#             #return {"country":country,"method":"newCasesPeak","date":,"value":}
-#
-#
-#
-#             # cases=first_item(ordered_json_response)
-#             # max_pair=(cases[0],0)
-#             # prev_max=0
-#             # for key in ordered_json_response.keys():
-#             #     print(key)
-#             #     ordered_json_response[key]
-#
-#
-#             # print(cases[1])
-#             # print(type(cases))
-#             return ordered_json_response
-#             #print (type(response.status_code))
-#             #return 'Hello World!'
-#         else:
-#             return "API failed to respond"
-#     except requests.exceptions.HTTPError as e:
-#         return (e).__str__()
-
 
 
 #
