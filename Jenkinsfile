@@ -12,6 +12,7 @@ pipeline {
                 sh 'ls -l'
                 sh 'pwd'
                 sh 'python --version'
+                sh 'python /var/jenkins_home/workspace/Fyber_Task_YOAV_GIAT_master/app.py'
             }
         }
         stage('Deploy') {
