@@ -35,7 +35,7 @@
 
 
 
-### run ### on jenkins
+### run on jenkins
 1. your jenkins server is now up and running , log in using http://localhost:8080/
 2. start a new job namee "fyber", name it , and choose the 'Pipeline' option
 3. scroll down to "Pipelin", and in the drop down replace "Pipeline script" to "Pipeline script from scp".
