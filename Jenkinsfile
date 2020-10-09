@@ -40,7 +40,7 @@ pipeline {
                     sh 'curl localhost:8080'
                     sh 'curl localhost:8080/newCasesPeak?country=israel'
                     sh 'curl localhost:8080/newCasesPeak?country=australia'
-                    sh 'pytest'
+                    sh 'python -m pytest hello.py'
                     echo "accessing peak cases in country: ${params.country}"
                     sh "curl localhost:8080/newCasesPeak?country=${params.country}"
                     sh "curl localhost:8080/recoveredPeak?country=${params.country}"
