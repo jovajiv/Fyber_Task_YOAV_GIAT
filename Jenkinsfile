@@ -37,7 +37,7 @@ pipeline {
                     sh 'curl localhost:8080/newCasesPeak?country=israel'
                     sh 'curl localhost:8080/newCasesPeak?country=australia'
                     echo "accessing peak cases in country: ${params.country}"
-                    sh "curl localhost:8080/newCasesPeak?country=${params.country}
+                    sh "curl localhost:8080/newCasesPeak?country=${params.country}"
             }
         }
         stage('Deploy') {
