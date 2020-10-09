@@ -33,16 +33,7 @@ this repo is deisgned for jenkins server, in case you wish to only run flask app
 3. run jenkins on docker according to the info specified on (2)
 4. finish jenkins installation with the post installation wizard https://www.jenkins.io/doc/book/installing/#setup-wizard
 
-```sh
-git clone https://github.com/your_username_/Project-Name.git
-```
-3. Install NPM packages
-```sh
-npm install
-```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
+
 ```
 ## run
 1. your jenkins server is now up and running , log in using http://localhost:8080/
