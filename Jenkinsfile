@@ -12,7 +12,7 @@ pipeline {
                     australia\\nisrael\\ngermany ''', name: 'countries ')])])
 
 
-                    arr=$params.country.tokenize(',')
+
 
                 }
             }
@@ -45,7 +45,6 @@ pipeline {
                     sh 'curl localhost:8080/newCasesPeak?country=australia'
                     sh 'python -m unittest hello.py'
                     echo "accessing peak cases in country: ${params.country}"
-                    echo "accessing peak cases in country: ${arr[0]}"
                     sh "curl localhost:8080/newCasesPeak?country=${params.country}"
                     sh "curl localhost:8080/recoveredPeak?country=${params.country}"
                     sh "curl localhost:8080/deathsPeak?country=${params.country}"
