@@ -53,7 +53,7 @@ const API_KEY = 'ENTER YOUR API';
 6. now, at http://localhost:8080/job/fyber/ , choose the "build now" option
 7. once the execution is complete, refresh the current web page, you know see the option "build with parameters"
 8. click "build with parameters", and insert a list of country names you want to query, as specified in the description
-9. at the end of the execution, the outputs of the exectuion are available at the jobs console output , at http://localhost:8080/job/fyber/<build_id>/console
+9. at the end of the execution, the outputs of the execution are available at the jobs console output , at http://localhost:8080/job/fyber/<build_id>/console
 
 
 
