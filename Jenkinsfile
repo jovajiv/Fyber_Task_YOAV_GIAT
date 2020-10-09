@@ -5,8 +5,11 @@ pipeline {
             stage("parameterized _Input") {
             steps {
                 script {
-                    properties([[$class: 'JiraProjectProperty'], parameters([string(defaultValue: '', description: '''choose country to query our Flask application with.
-                    test will return peak values regarding the last 30 days''', name: 'country', trim: false)])])
+
+
+                    properties([[$class: 'JiraProjectProperty'], parameters([text(defaultValue: '', description: '''list of countries to be tested,
+                    must be \\n between each name, for example :
+                    australia\\nisrael\\ngermany ''', name: 'countries ')])])
 
                 }
             }
@@ -36,10 +39,10 @@ pipeline {
                     sh 'curl localhost:8080'
                     sh 'curl localhost:8080/newCasesPeak?country=israel'
                     sh 'curl localhost:8080/newCasesPeak?country=australia'
-                    echo "accessing peak cases in country: ${params.country}"
+                    echo "accessing peak cases in country: ${params.country[0]}"
                     sh "curl localhost:8080/newCasesPeak?country=${params.country}"
-                    sh "curl localhost:8080/recoveredPeak?country=${params.country}"
-                    sh "curl localhost:8080/deathsPeak?country=${params.country}"
+                    sh "curl localhost:8080/recoveredPeak?country=${params.country[0]}"
+                    sh "curl localhost:8080/deathsPeak?country=${params.country[1]}"
                     sh "curl localhost:8080/newCasesPeak?country=dfgdfgdfg"
                     sh "curl localhost:8090/neeak?country=${params.country}"
                     sh "curl localhost:8/newCasesPeak?country=dfgdfgdfg"
