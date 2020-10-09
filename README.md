@@ -21,10 +21,10 @@
 
 
 ## Getting Started
-This project is a flask app written in Python, designed to scrape 3rd party API regarding covid-19.
-returns, upon specified query, json info on peak deaths/recovered/new cases regarding requested country in the last 30 days.
-also, attached a jenkinsfile with configuration and basic querys for our flask server.
-this repo is deisgned for jenkins server, in case you wish to only run flask app , only app.py is requiered
+ This project is a flask app written in Python, designed to scrape 3rd party API regarding covid-19.
+ returns, upon specified query, json info on peak deaths/recovered/new cases regarding requested country in the last 30 days.
+ Also, Attached a jenkinsfile with configuration and basic querys for our flask server.
+ This repo is deisgned for jenkins server, In case you wish to only run flask app , only app.py is requiered (specified in [[optional]](#run)
 
 ### Installation
 
@@ -35,8 +35,7 @@ this repo is deisgned for jenkins server, in case you wish to only run flask app
 
 
 
-### run
-### on jenkins
+### run ### on jenkins
 1. your jenkins server is now up and running , log in using http://localhost:8080/
 2. start a new job namee "fyber", name it , and choose the 'Pipeline' option
 3. scroll down to "Pipelin", and in the drop down replace "Pipeline script" to "Pipeline script from scp".
@@ -48,7 +47,8 @@ this repo is deisgned for jenkins server, in case you wish to only run flask app
 9. at the end of the execution, the outputs of the execution are available at the jobs console output , at http://localhost:8080/job/fyber/<build_id>/console
 
 
-### [optional] run Flask app only (not intended)
+### [optional]
+ ### run Flask app only (not intended)
 in case you wish to only run the flask server, please create a new flask project,
 and replace the app.py supplied with the app.py in this repository.
 installing extra modules (such as 'requests module') might be necessery
