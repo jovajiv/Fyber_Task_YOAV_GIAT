@@ -16,8 +16,11 @@ pipeline {
         stage('Run Flask Server') {
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
-                    echo 'Running Flask Server..'
-
+                    echo 'Building..'
+                    sh """
+                    pip install flask --user
+                    pip install requests --user
+                    """
                     withEnv(['JENKINS_NODE_COOKIE =dontkill']) {
                             echo "Running Flask Server in background..."
                             sh "python app.py &"
@@ -26,9 +29,9 @@ pipeline {
                 }
             }
         }
-        stage('Execute curl') {
+        stage('Execute_curl') {
             steps {
-                    sh "echo curl requested countries:"
+                    echo
                     traditional_int_for_loop(country_list)
 
 
@@ -40,6 +43,7 @@ pipeline {
 
 
 def traditional_int_for_loop(country_list) {
+    sh "echo curl requested countries:"
     for (int i = 0; i < country_list.size(); i++) {
         echo "starting country: ${country_list[i]}"
         sh "curl localhost:8080/newCasesPeak?country=${country_list[i]}"
