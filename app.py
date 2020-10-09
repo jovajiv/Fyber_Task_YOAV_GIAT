@@ -59,8 +59,8 @@ def peak(query):
             list_of_pairs = list(ordered_json_response.items())              ## [('9/7/20', 133975), ('9/8/20', 137565), ('9/9/20', 141097),...] list format
             print(list_of_pairs)
             print(type(list_of_pairs))
-            pair=max_pair_by_val(list_of_pairs)     # pair=(date_of_max_diff, max_diff)
-            ordered_json_reply=OrderedDict([("country", country), ("method", requested_info[query]), ("date", pair[DATE]), ("value", pair[VALUE])])
+            pair = max_pair_by_val(list_of_pairs)     # pair=(date_of_max_diff, max_diff)
+            ordered_json_reply = OrderedDict([("country", country), ("method", requested_info[query]), ("date", pair[DATE]), ("value", pair[VALUE])])
             return json.dumps(ordered_json_reply)
         else:
             return json.dumps({})
@@ -79,8 +79,8 @@ def query_type():
     return switcher
 
 
-# this function receives a list of tuple pairs. [(key1,val1) , (key2,val2) , (key3,val3)...]
-# returns the pair (key,diff) whose diff (curr_elemnt_val - prev_elemnt_val) is maximal.
+# this function receives a list of tuple pairs. [(date1,val1) , (date2,val2) , (date3,val3)...]
+# returns the pair (date,diff) whose diff (curr_elemnt_val - prev_elemnt_val) is maximal.
 def max_pair_by_val(list):
     max_diff = 0
     max_index = 0
