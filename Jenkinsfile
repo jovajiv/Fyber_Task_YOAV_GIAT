@@ -7,7 +7,7 @@ pipeline {
                 script {
                     properties([[$class: 'JiraProjectProperty'], parameters([string(defaultValue: '', description: '''accepts a list of countries seperated by \',\'
                     for example ,
-                    israel,australia,austria''', name: 'country', trim: true)])])
+                    israel,australia,austria''', name: 'country', trim: false)])])
 
                     country_list=params.country.tokenize(',')
                 }
