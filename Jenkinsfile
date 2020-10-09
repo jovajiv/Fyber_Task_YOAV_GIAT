@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'python:3.5.1'
+    agent { docker { image 'python:3.5'
                      args '-p 2000:8080'} }
     stages {
             stage("parameterized _Input") {
@@ -33,9 +33,6 @@ pipeline {
             steps {
                     sh "echo curl requested countries:"
                     traditional_int_for_loop(country_list)
-
-
-
             }
         }
     }
