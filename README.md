@@ -50,6 +50,6 @@
 ### [optional]
  ### run Flask app only (not intended)
 in case you wish to only run the flask server, please create a new flask project,
-and replace the app.py supplied with the app.py in this repository.
+and replace the app.py supplied in this repository.
 installing extra modules (such as 'requests module') might be necessery
 
