@@ -24,7 +24,7 @@
  This project is a flask app written in Python, designed to scrape 3rd party API regarding covid-19.
  returns, upon specified query, json info on peak deaths/recovered/new cases regarding requested country in the last 30 days.
  Also, Attached a jenkinsfile with configuration and basic querys for our flask server.
- This repo is deisgned for jenkins server, In case you wish to only run flask app , only app.py is requiered (specified in [[optional]](#run)
+ This repo is deisgned for jenkins server, In case you wish to only run flask app , only app.py is requiered (specified in [optional](#[optional])
 
 ### Installation
 
