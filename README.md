@@ -45,15 +45,15 @@ npm install
 const API_KEY = 'ENTER YOUR API';
 ```
 ## run
-1.your jenkins server is now up and running , log in using http://localhost:8080/
-2.start a new job namee "fyber", name it , and choose the 'Pipeline' option
-3.scroll down to "Pipelin", and in the drop down replace "Pipeline script" to "Pipeline script from scp".
-4.change scm drop down menu to "git", and input this repository https://github.com/jovajiv/Fyber_Task_YOAV_GIAT.git 
-5.apply and save
-6.now, at http://localhost:8080/job/fyber/ , choose the "build now" option
-7.once the execution is complete, refresh the current web page, you know see the option "build with parameters"
-8.click "build with parameters", and insert a list of country names you want to query, as specified in the description
-9.at the end of the execution, the outputs of the exectuion are available at the jobs console output , at http://localhost:8080/job/fyber/<build_id>/console
+1. your jenkins server is now up and running , log in using http://localhost:8080/
+2. start a new job namee "fyber", name it , and choose the 'Pipeline' option
+3. scroll down to "Pipelin", and in the drop down replace "Pipeline script" to "Pipeline script from scp".
+4. change scm drop down menu to "git", and input this repository https://github.com/jovajiv/Fyber_Task_YOAV_GIAT.git 
+5. apply and save
+6. now, at http://localhost:8080/job/fyber/ , choose the "build now" option
+7. once the execution is complete, refresh the current web page, you know see the option "build with parameters"
+8. click "build with parameters", and insert a list of country names you want to query, as specified in the description
+9. at the end of the execution, the outputs of the exectuion are available at the jobs console output , at http://localhost:8080/job/fyber/<build_id>/console
 
 
 
