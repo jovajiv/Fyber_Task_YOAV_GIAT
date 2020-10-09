@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'python:3.5'
+    agent { docker { image 'python:3.6.2'
                      args '-p 2000:8080'} }
     stages {
             stage("parameterized _Input") {
@@ -17,10 +17,7 @@ pipeline {
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     echo 'Building..'
-                    sh """
-                    pip install flask --user
-                    pip install requests --user
-                    """
+
                     withEnv(['JENKINS_NODE_COOKIE =dontkill']) {
                             echo "Running Flask Server in background..."
                             sh "python app.py &"
