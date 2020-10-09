@@ -31,7 +31,7 @@ pipeline {
         }
         stage('Execute_curl') {
             steps {
-                    echo
+                    sh "echo curl requested countries:"
                     traditional_int_for_loop(country_list)
 
 
@@ -43,7 +43,6 @@ pipeline {
 
 
 def traditional_int_for_loop(country_list) {
-    sh "echo curl requested countries:"
     for (int i = 0; i < country_list.size(); i++) {
         echo "starting country: ${country_list[i]}"
         sh "curl localhost:8080/newCasesPeak?country=${country_list[i]}"
