@@ -17,7 +17,10 @@ pipeline {
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     echo 'Building..'
-
+                    sh """
+                    pip install flask --user
+                    pip install requests --user
+                    """
                     withEnv(['JENKINS_NODE_COOKIE =dontkill']) {
                             echo "Running Flask Server in background..."
                             sh "python app.py &"
