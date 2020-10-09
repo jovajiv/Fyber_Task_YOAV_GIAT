@@ -12,8 +12,7 @@ pipeline {
                     israel,australia,austria''', name: 'country', trim: false)])])
 
 
-                    arr=["israel","australia","austria"]
-                    test=params.country.tokenize(',')
+                    country_list=params.country.tokenize(',')
 
                 }
             }
@@ -36,30 +35,27 @@ pipeline {
         }
         stage('Test') {
             steps {
-                    echo 'Testing.k.'
-                    sh 'ls -l'
-                    sh 'pwd'
-                    sh 'python --version'
-                    sh 'python hello.py'
                     sh 'curl localhost:8080'
                     sh 'curl localhost:8080/newCasesPeak?country=israel'
                     sh 'curl localhost:8080/newCasesPeak?country=australia'
-                    sh 'python -m unittest hello.py'
-                    echo "accessing peak cases in country: ${params.country}"
-                    echo "accessing peak cases in country: ${arr[0]}"
-                    echo "accessing peak cases in country: ${test[0]}"
-                    sh "curl localhost:8080/newCasesPeak?country=${params.country}"
-                    sh "curl localhost:8080/recoveredPeak?country=${params.country}"
-                    sh "curl localhost:8080/deathsPeak?country=${params.country}"
-                    sh "curl localhost:8080/newCasesPeak?country=dfgdfgdfg"
-                    sh "curl localhost:8090/neeak?country=${params.country}"
-                    sh "curl localhost:8/newCasesPeak?country=dfgdfgdfg"
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                    echo "checking 3rd party api server status: "
+                    sh "curl localhost:8080/status"
+                    traditional_int_for_loop(country_list)
+
+
+
             }
         }
     }
 }
+
+
+                    def traditional_int_for_loop(country_list) {
+                        sh "echo curl requested countries:"
+                        for (int i = 0; i < country_list.size(); i++) {
+                            echo "starting country: ${country_list[i]}"
+                            sh "curl localhost:8080/newCasesPeak?country=${country_list[i]}"
+                            sh "curl localhost:8080/recoveredPeak?country=${country_list[i]}"
+                            sh "curl localhost:8080/deathsPeak?country=${country_list[i]}"
+                        }
+                    }
