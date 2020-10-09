@@ -21,6 +21,7 @@ pipeline {
                     sh """
                     pip install flask --user
                     pip install requests --user
+                    pip install pytest --user
                     """
                     withEnv(['JENKINS_NODE_COOKIE =dontkill']) {
                             sh "python app.py &"
@@ -39,10 +40,11 @@ pipeline {
                     sh 'curl localhost:8080'
                     sh 'curl localhost:8080/newCasesPeak?country=israel'
                     sh 'curl localhost:8080/newCasesPeak?country=australia'
-                    echo "accessing peak cases in country: ${params.country[0]}"
+                    sh 'pytest'
+                    echo "accessing peak cases in country: ${params.country}"
                     sh "curl localhost:8080/newCasesPeak?country=${params.country}"
-                    sh "curl localhost:8080/recoveredPeak?country=${params.country[0]}"
-                    sh "curl localhost:8080/deathsPeak?country=${params.country[1]}"
+                    sh "curl localhost:8080/recoveredPeak?country=${params.country}"
+                    sh "curl localhost:8080/deathsPeak?country=${params.country}"
                     sh "curl localhost:8080/newCasesPeak?country=dfgdfgdfg"
                     sh "curl localhost:8090/neeak?country=${params.country}"
                     sh "curl localhost:8/newCasesPeak?country=dfgdfgdfg"
