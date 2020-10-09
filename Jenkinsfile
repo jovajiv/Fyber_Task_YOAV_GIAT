@@ -12,7 +12,7 @@ pipeline {
                     australia\\nisrael\\ngermany ''', name: 'countries ')])])
 
 
-                    arr=params.country.tokenize(',')
+                    arr=$params.country.tokenize(',')
 
                 }
             }
