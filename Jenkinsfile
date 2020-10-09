@@ -12,7 +12,7 @@ pipeline {
                     israel,australia,austria''', name: 'country', trim: false)])])
 
 
-                    arr=params.country.tokenize(',')
+                    arr=["israel","australia","austria"]
 
                 }
             }
