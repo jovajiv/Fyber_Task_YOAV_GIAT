@@ -34,8 +34,8 @@ this repo is deisgned for jenkins server, in case you wish to only run flask app
 4. finish jenkins installation with the post installation wizard https://www.jenkins.io/doc/book/installing/#setup-wizard
 
 
-```
-## run
+
+### run
 1. your jenkins server is now up and running , log in using http://localhost:8080/
 2. start a new job namee "fyber", name it , and choose the 'Pipeline' option
 3. scroll down to "Pipelin", and in the drop down replace "Pipeline script" to "Pipeline script from scp".
