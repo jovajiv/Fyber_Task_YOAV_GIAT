@@ -36,6 +36,7 @@ this repo is deisgned for jenkins server, in case you wish to only run flask app
 
 
 ### run
+### on jenkins
 1. your jenkins server is now up and running , log in using http://localhost:8080/
 2. start a new job namee "fyber", name it , and choose the 'Pipeline' option
 3. scroll down to "Pipelin", and in the drop down replace "Pipeline script" to "Pipeline script from scp".
@@ -47,4 +48,8 @@ this repo is deisgned for jenkins server, in case you wish to only run flask app
 9. at the end of the execution, the outputs of the execution are available at the jobs console output , at http://localhost:8080/job/fyber/<build_id>/console
 
 
+### on python
+in case you wish to only run the flask server, please create a new flask project,
+and replace the app.py supplied with the app.py in this repository.
+installing extra modules (such as 'requests module') might be necessery
 
