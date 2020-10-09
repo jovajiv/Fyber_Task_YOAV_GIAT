@@ -41,6 +41,8 @@ pipeline {
                     sh "curl localhost:8080/recoveredPeak?country=${params.country}"
                     sh "curl localhost:8080/deathsPeak?country=${params.country}"
                     sh "curl localhost:8080/newCasesPeak?country=dfgdfgdfg"
+                    sh "curl localhost:8090/neeak?country=${params.country}"
+                    sh "curl localhost:8/newCasesPeak?country=dfgdfgdfg"
             }
         }
         stage('Deploy') {
