@@ -7,12 +7,12 @@ pipeline {
                 script {
 
 
-                    properties([[$class: 'JiraProjectProperty'], parameters([text(defaultValue: '', description: '''list of countries to be tested,
-                    must be \\n between each name, for example :
-                    australia\\nisrael\\ngermany ''', name: 'countries ')])])
+                    properties([[$class: 'JiraProjectProperty'], parameters([string(defaultValue: '', description: '''accepts a list of countries seperated by \',\'
+                    for example ,
+                    israel,australia,austria''', name: 'country', trim: false)])])
 
 
-
+                    arr=params.country.tokenize(',')
 
                 }
             }
@@ -45,6 +45,7 @@ pipeline {
                     sh 'curl localhost:8080/newCasesPeak?country=australia'
                     sh 'python -m unittest hello.py'
                     echo "accessing peak cases in country: ${params.country}"
+                    echo "accessing peak cases in country: ${arr[0]}"
                     sh "curl localhost:8080/newCasesPeak?country=${params.country}"
                     sh "curl localhost:8080/recoveredPeak?country=${params.country}"
                     sh "curl localhost:8080/deathsPeak?country=${params.country}"
